@@ -1,0 +1,144 @@
+.ui.fluid.card.large-post(class=val.isRelevant ? "relevant-post" : "", postID=val.id)
+  .viewTimer.hidden NaN
+  .content
+    .right.floated.time.meta=(val.absTime && val.absTime.getTime ? val.absTime.getTime() : '')
+    // avatar -> preserve level (null-safe)
+    - const hasPoster = !!(val.poster);
+    - const posterUsername = hasPoster && val.poster.username ? val.poster.username : null;
+    - const posterHref = posterUsername ? `/user/${posterUsername}?level=${currentLevel}` : 'javascript:void(0)';
+    a.ui.avatar.image(href=posterHref)
+      if val.postType == 'Agent'
+        if hasPoster && val.poster.profile && val.poster.profile.picture
+          img(src='/public/picture.svg', data-src="/public/profile_pictures/"+val.poster.profile.picture)
+        else
+          img(src='/img/default-avatar.png')
+      else if val.postType == 'User'
+        if hasPoster && val.poster.profile && val.poster.profile.picture
+          img(src='/public/picture.svg', data-src="/user_avatar/"+val.poster.profile.picture)
+        else if hasPoster && val.poster && val.poster.gravatar
+          img(src=val.poster.gravatar(60))
+        else
+          img(src='/img/default-avatar.png')
+      else
+        if hasPoster && val.poster.profile && val.poster.profile.picture
+          img(src='/public/picture.svg', data-src=cdn+"/profile_pictures/"+val.poster.profile.picture)
+        else
+          img(src='/img/default-avatar.png')
+
+    // name -> preserve level (null-safe)
+    a(href=posterHref)
+      - const posterName = hasPoster && val.poster.profile && val.poster.profile.name ? val.poster.profile.name : (posterUsername || 'Unknown');
+      span(
+        data-position='bottom center'
+        data-type=val.postType
+        data-html='<div></div>'
+        class=(user && posterUsername && user.username==posterUsername ? null : "username")
+      )= posterName
+
+  .content.dimmable(class=val.flagged ? "dimmed": "")
+      .ui.dimmer.flag(class=val.flagged ? "active": "")
+        .contents
+          .center
+            h2.ui.inverted.icon.header
+              i.red.flag.icon
+              | You've flagged this!
+              h3.ui.inverted.header
+                  span The admins will review this post further. We are sorry you had this experience.
+            .ui.inverted.unflag.button(tabindex='0')
+              i.flag.icon
+              |  Unflag
+      if val.picture
+        .image
+          if val.postType == 'User' || val.postType == 'Agent'
+            img(src='/user_post/'+val.picture)
+          else
+            img(src='/public/picture.svg', data-src=cdn+"/post_pictures/"+val.picture, style="max-width:100%; width:100%;", class="resized-post-image")
+      .description!= val.body
+
+  .four.ui.bottom.attached.icon.buttons
+    //- Reply / share / flag / like controls temporarily hidden per request
+    // .ui.reply.button(tabindex='0')
+    //   i.reply.icon
+    //   |  Reply
+    // //- Only display the flag button if this is not the user's own post
+    // if user && hasPoster && posterUsername && user.username != posterUsername
+    //   .ui.flag.button(tabindex='0')
+    //     i.flag.icon
+    //     |  Flag
+    //   .ui.share.button(tabindex='0')
+    //     i.share.icon
+    //     |  Share
+    // .ui.labeled.button(tabindex='0')
+    //   .ui.like.button(class=val.liked ? "red" : null)
+    //     i.heart.icon
+    //     |  Like
+    //   a.ui.basic.red.left.pointing.label.count=val.likes
+
+  if val.comments && val.comments.length > 0
+    .content
+      .ui.comments
+        each comment in val.comments
+          - const hasCommentor = !!(comment && comment.commentor);
+          - const commentorUsername = hasCommentor && comment.commentor.username ? comment.commentor.username : null;
+          - const commentHref = commentorUsername ? `/user/${commentorUsername}?level=${currentLevel}` : 'javascript:void(0)';
+          .comment(commentID=comment.id)
+            .viewTimer.hidden NaN
+            .content(class=!comment.flagged ? "transition hidden" : "")
+              .text(style="background-color: black; color: white; padding: 0.2em;")  You flagged this comment. The admins will review this comment further. We are sorry you had this experience.
+              .actions
+                a.unflag Unflag
+            // commenter avatar -> preserve level
+            a.ui.avatar.image(
+              href=commentHref
+              class=comment.flagged ? "transition hidden" : ""
+            )
+              if comment.commentType == 'Agent'
+                if hasCommentor && comment.commentor.profile && comment.commentor.profile.picture
+                  img(src='/public/picture.svg', data-src="/public/profile_pictures/"+comment.commentor.profile.picture)
+                else
+                  img(src='/img/default-avatar.png')
+              else if comment.commentType == 'User'
+                if hasCommentor && comment.commentor.profile && comment.commentor.profile.picture
+                  img(src='/public/picture.svg', data-src="/user_avatar/"+comment.commentor.profile.picture)
+                else if hasCommentor && comment.commentor && comment.commentor.gravatar
+                  img(src=comment.commentor.gravatar(60))
+                else
+                  img(src='/img/default-avatar.png')
+              else
+                if hasCommentor && comment.commentor.profile && comment.commentor.profile.picture
+                  img(src='/public/picture.svg', data-src=cdn+"/profile_pictures/"+comment.commentor.profile.picture)
+                else
+                  img(src='/img/default-avatar.png')
+
+            .content(class=comment.flagged ? "transition hidden" : "")
+              // commenter name -> preserve level
+              a(href=commentHref)
+                - const commentorName = hasCommentor && comment.commentor.profile && comment.commentor.profile.name ? comment.commentor.profile.name : (commentorUsername || comment.commentor && comment.commentor.id || 'Unknown');
+                span(
+                  data-position='bottom center'
+                  data-type=comment.commentType
+                  data-html='<div></div>'
+                  class=(user && commentorUsername && user.username==commentorUsername ? null: "username")
+                )= commentorName
+              .metadata
+                span.date=(comment.absTime && comment.absTime.getTime ? comment.absTime.getTime() : '')
+                .rating
+                  i.heart.icon(class=comment.liked ? "red" : null)
+                  span.num=comment.likes
+                  |  Likes
+              .text=comment.body
+
+  .extra.content
+    .ui.fluid.left.labeled.right.icon.input
+      .ui.label
+        if user && user.profile && user.profile.picture
+          img.ui.avatar.image.small(src='/user_avatar/'+user.profile.picture, name=user.profile.name || user.username || user.id)
+        else
+          img.ui.avatar.image.small(src=user && user.gravatar ? user.gravatar(60) : '/img/default-avatar.png', name=user && (user.profile && user.profile.name || user.username || user.id))
+      .ui.form
+        .field
+          textarea.newcomment(type='text', placeholder='Write a Comment', rows='1', data-post-id=val.id)
+      i.big.send.link.icon
+
+  script.
+    console.log(!{JSON.stringify(val)});

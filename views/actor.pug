@@ -1,0 +1,183 @@
+extends ui_layout
+
+block styles
+  link(type='text/css', rel='stylesheet', href='/public/css/script.css?v=4')
+  link(type='text/css', rel='stylesheet', href='/public/css/chat.css')
+  link(type='text/css', rel='stylesheet', href='/public/css/objectives.css')
+
+block content
+  // seed the current level for client-side code
+  #level-carrier(data-level=currentLevel, style="display:none")
+
+  .computer.only.tablet.only.four.wide.column
+    if user.username == actor.username
+      include ./partials/userCard
+    else
+      .ui.card
+        .image
+          // exactly ONE anchor
+          a.profile-photo-link(href=`/user/${actor.username}?level=${currentLevel}`)
+            if actorType == "User" || actorType == "Agent"
+              if actor.profile.picture
+                img.ui.image(
+                  src="/public/picture.svg"
+                  data-src="/user_avatar/"+actor.profile.picture
+                  alt=actor.profile.name || actor.username
+                )
+              else
+                img.ui.image(src=actor.gravatar(300), alt=actor.profile.name || actor.username)
+            else
+              img.ui.image(
+                src="/public/picture.svg"
+                data-src=cdn+"/profile_pictures/"+actor.profile.picture
+                alt=actor.profile.name || actor.username
+              )
+        .content
+          a.header(href=`/user/${actor.username}?level=${currentLevel}`)= actor.profile.name
+          .meta="@"+actor.username
+          .description(style='white-space: pre-wrap')=actor.profile.bio
+          .description(style="margin-top: 5px;")
+            if actor.profile.location
+              i.marker.icon
+              span=actor.profile.location
+          .two.ui.equal.width.grid
+            .ui.basic.primary.follow.button(style="margin: 25px 0px 10px 15px;", actor_un=actor.username)
+              if user.followed.findIndex(({actorId}) => actor._id.equals(actorId)) !== -1
+                i.check.icon
+                | Following
+              else
+                | Follow
+            .ui.basic.primary.message-user.button(style="margin: 25px 0px 10px 15px;", actor_un=actor.username)
+              | Message
+        .two.ui.bottom.attached.icon.buttons
+          button.ui.button.block(data-tooltip='Block User', data-position='bottom left', username=actor.username)
+            i.ban.icon
+          button.ui.button.report(data-tooltip='Report User', data-position='bottom right', username=actor.username)
+            i.flag.icon
+
+  #loading.eight.wide.computer.ten.wide.tablet.sixteen.wide.mobile.column
+    img.ui.centered.small.image(src='/public/heart.svg')
+
+  #content.eight.wide.computer.ten.wide.tablet.sixteen.wide.mobile.column(style='display: none;')
+    if (script.length==0)
+      .ui.fluid.card
+        .content
+          .description
+            | No posts to show.
+    each val in script
+      include ./partials/post
+
+  // Report modal
+  .ui.small.report.coupled.modal
+    i.close.icon
+    .header
+      i.flag.icon
+      | Report This User
+    .content
+      form#reportform.ui.reply.form(action='/user', method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        input(type='hidden', name='reported', value=actor.username)
+        .ui.form.large
+          .grouped.fields
+            label(for='report_issue') Help us understand the issue. What's the problem with this account?
+            .field
+              .ui.radio.checkbox
+                input.hidden(type='radio', name='report_issue', value="interested", tabindex='0')
+                label I'm not interested in this account.
+            .field
+              .ui.radio.checkbox
+                input.hidden(type='radio', name='report_issue', value="spam", tabindex='0')
+                label They are posting spam.
+            .field
+              .ui.radio.checkbox
+                input.hidden(type='radio', name='report_issue', value="bully", tabindex='0')
+                label They're being abusive or harmful.
+            .field
+              .ui.radio.checkbox
+                input.hidden(type='radio', name='report_issue', value="hacked", tabindex='0')
+                label Their account may be hacked.
+    .actions
+      input.ui.green.button.disabled(type='submit', value='Submit', form='reportform')
+
+  // Report confirmation
+  .ui.small.second.coupled.modal
+    .header Your Report Has Been Sent!
+    .content
+      .description
+        p This user has been reported to the admins. Thank you for helping the community!
+    .actions
+      .ui.approve.green.button
+        i.checkmark.icon
+        | Continue
+
+  // Block modal
+  .ui.small.basic.blocked.modal
+    .ui.icon.header
+      i.ban.icon
+      | You Have Blocked This User
+    .content
+      p You will no longer see posts or comments from this user. You can choose to report this user or un-block them.
+    .actions
+      .ui.left.floated.red.inverted.button
+        i.flag.icon
+        | Report User
+      .ui.home.inverted.button
+        i.home.icon
+        | Go Back to Homepage
+      .ui.green.ok.inverted.button
+        i.undo.icon
+        | Un-Block User
+
+  .computer.only.tablet.only.four.wide.column
+
+block scripts
+  script.
+    let isBlocked = !{JSON.stringify(isBlocked)};
+    let isReported = !{JSON.stringify(isReported)};
+
+  script.
+    $('.ui.editprofile.button').on('click', function () {
+      window.location.href = '/account';
+    });
+
+  script(src='/public/js/actor.js')
+  script(src='/public/js/postFunctionalities.js')
+  script(src='/public/js/chat.js')
+  script(src='/public/js/transitionModal.js')
+  script(src='/public/js/levelClient.js')
+  script(src='/public/js/score.js')
+  script(src='/public/js/timer.js')
+
+  // always pull fresh objectives client
+  script(src=`/public/js/objectives.js?v=${Date.now()}`)
+
+  // keep objectives in sync on this page
+  script.
+    (function () {
+      function refreshObjectives() {
+        if (typeof window.fetchAndRenderObjectives === 'function') {
+          window.fetchAndRenderObjectives();
+        } else if (typeof window.loadObjectives === 'function') {
+          const carrier = document.getElementById('level-carrier');
+          const lvl = carrier ? Number(carrier.getAttribute('data-level')) || 1 : 1;
+          window.loadObjectives(lvl);
+        }
+      }
+
+      // initial
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', refreshObjectives, { once: true });
+      } else {
+        refreshObjectives();
+      }
+
+      // resume/tab focus/bfcache
+      window.addEventListener('pageshow', e => { if (e.persisted) refreshObjectives(); });
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') refreshObjectives();
+      });
+
+      // app events
+      window.addEventListener('level:changed', refreshObjectives);
+      window.addEventListener('objectives:changed', refreshObjectives);
+    })();

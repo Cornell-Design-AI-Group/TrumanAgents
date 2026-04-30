@@ -1,0 +1,71 @@
+body {
+  background-color: #2d3338 !important;
+  /*color: #e9edf3;*/
+  padding: 0;
+}
+
+/*Page Container*/
+
+#pagegrid {
+  justify-content: center;
+}
+
+#pagecontainer {
+  padding-top: 90px;
+  justify-content: center;
+}
+
+/*General CSS*/
+
+.hidden {
+  display: none;
+}
+
+a,
+button,
+.ui.button {
+  cursor: pointer;
+}
+
+/* Header CSS */
+
+.ui.borderless.fixed.menu,
+.ui.fluid.top.fixed.four.item.menu {
+  background: #2d3338 !important;
+  border: none !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.ui.borderless.fixed.menu .item,
+.ui.fluid.top.fixed.four.item.menu .item {
+  color: #ffffff !important;
+}
+
+.ui.borderless.fixed.menu .item i.icon,
+.ui.fluid.top.fixed.four.item.menu .item i.icon {
+  color: #ffffff !important;
+}
+
+.ui.menu .item > i.icon {
+  margin: 0 !important;
+}
+
+.ui.mini.image {
+  height: 35px;
+}
+
+/*Other*/
+
+.ui.fluid.card > .content > .description {
+  font-size: 1.05em;
+}
+
+/* Image Upload*/
+
+.image-upload > input {
+  display: none;
+}
+
+.image-upload img {
+  cursor: pointer;
+}

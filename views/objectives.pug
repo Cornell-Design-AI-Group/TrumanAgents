@@ -1,0 +1,21 @@
+- var title = typeof title !== 'undefined' && title ? title : 'Objectives'
+
+extends ui_layout
+
+block styles
+  link(type='text/css', rel='stylesheet', href='/public/css/objectives.css')
+
+block content
+  - const lvl = typeof currentLevel !== 'undefined' ? currentLevel : 1;
+  .objectives-stage
+    .objectives-column
+      #objectives-panel(data-level=lvl)
+    .scene-column
+      .scene-frame
+        img.scene-photo(src='/post_pictures/initiation_challenge.png', alt='Scenario preview for objectives panel')
+        .scene-caption
+          h3 Objectives Preview
+          p Updated styling to mirror the reference layout while using the OBJECTIVES header.
+
+block scripts
+  script(src='/public/js/objectives.js')

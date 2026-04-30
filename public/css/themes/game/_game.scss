@@ -1,0 +1,162 @@
+// _modern.scss
+
+//========= VARIABLES =========//
+$bg-main: #0d0d0d;
+$card-bg: #1a1a1a;
+$accent: #d32f2f; // deep red
+$light-text: #f0f0f0;
+$subtle-text: #999;
+$comment-highlight: rgba(255, 0, 0, 0.1);
+
+$font-main: 'Orbitron', 'Rajdhani', 'Share Tech Mono', sans-serif;
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/fonts/Orbitron/static/Orbitron-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/fonts/Orbitron/static/Orbitron-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Share Tech Mono';
+  src: url('/fonts/sharetech/ShareTechMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('/fonts/rajdhani/Rajdhani-Regular.ttf') format('truetype');
+}
+
+
+
+//========= GLOBAL STYLES =========//
+body {
+  background-color: $bg-main;
+  color: $light-text;
+  font-family: $font-main;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $accent;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+//========= POST CARD =========//
+.ui.fluid.card {
+  background-color: $card-bg;
+  border: 1px solid $accent;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+  margin-bottom: 2rem;
+
+  .content.dimmable {
+    padding: 1rem;
+
+    .image img {
+      width: 100%;
+      border: 2px solid $accent;
+    }
+  }
+
+  .extra.content {
+    background-color: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .like,
+    .flag,
+    .share {
+      color: $light-text;
+      cursor: pointer;
+
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+}
+
+
+//========= USER POST INFO =========//
+.comment {
+  background-color: transparent;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .avatar img {
+    border-radius: 50%;
+    border: 2px solid $accent;
+    margin-right: 0.75rem;
+    width: 40px;
+  }
+
+  .author {
+    color: $light-text;
+    font-weight: bold;
+  }
+
+  .metadata {
+    font-size: 0.75rem;
+    color: $subtle-text;
+  }
+
+  .text {
+    margin-top: 0.5rem;
+  }
+  /*
+  &.offensive {
+    background-color: $comment-highlight;
+    position: relative;
+
+    &::after {
+      content: '';
+      background-image: url('/icons/hitman-target.svg');
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      width: 20px;
+      height: 20px;
+      background-size: cover;
+    }
+  }*/
+}
+
+
+//========= FORM / COMMENT INPUT =========//
+textarea.newcomment {
+  background-color: $card-bg;
+  color: $light-text;
+  border: 1px solid $accent;
+  border-radius: 0;
+  padding: 0.5rem;
+  font-family: $font-main;
+}
+
+button {
+  background-color: transparent;
+  color: $light-text;
+  border: 1px solid $accent;
+  padding: 0.5rem 1rem;
+  font-family: $font-main;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $accent;
+    color: $bg-main;
+  }
+}

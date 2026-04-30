@@ -1,0 +1,81 @@
+extends ui_layout
+
+block content
+  .ui.text.container(style="margin-top: 2em; margin-bottom: 2em; color: #fff")
+    // Page Title
+    h1(ui centered style="text-align:center;") Tutorial: Guardian of the Social Realm
+
+    p Welcome, Guardian! Resolve the highlighted post to restore Social Trust and clear the scenario.
+
+    // The Feed
+    h2 The Feed
+    p The main feed shows user posts with one highlighted scenario. Read it closely before acting.
+    img.ui.centered.image(src='/public/post.png', alt='Feed with highlighted post')
+
+    // Game Interface
+    h2 Game Interface
+    .ui.grid
+      .four.wide.column
+        // Updated UI screenshot (people row + time bar + objectives)
+        img.ui.centered.image(src='/public/tutorial_ui.png', alt='Interface with Social Trust, Timer bar, Objectives')
+      .twelve.wide.column
+        h3 Indicators
+        ul
+          li
+            strong Social Trust (people row):
+            |  Each filled figure represents improved community trust. Raise it past the win marker to succeed.
+          li
+            strong Timer (progress bar + mm:ss):
+            |  The grey bar counts down. Finish your objectives before time runs out.
+          li
+            strong Objectives Panel:
+            |  Tasks unlock as you progress. A lock icon means a prerequisite isn’t done yet; completed tasks are struck through. Click the ▸ arrow to reveal a hint if you’re stuck.
+
+    // How to Play
+    h2 How to Play
+    ul
+      li
+        strong Investigate:
+        |  Open the highlighted post and read the thread/context.
+      li
+        strong Engage Publicly:
+        |  Leave a constructive comment when appropriate—don’t escalate.
+      li
+        strong Reach Out Privately:
+        |  DM the victim, bully, or informer to clarify motives and offer support.
+      li
+        strong Complete Objectives:
+        |  Check off all tasks to push Social Trust past the win threshold.
+      li
+        strong Beat the Clock:
+        |  Watch the timer bar and prioritize the highest-impact actions.
+
+    // Commenting & Messaging (visuals)
+    h2 Comment & Message
+    p You can act publicly with a comment or privately with a DM. Use both wisely.
+
+    .ui.stackable.two.column.grid
+      .column
+        h3 Public comment
+        img.ui.fluid.rounded.image(src='/public/comment.png', alt='Write a Comment box')
+        .ui.small.basic.segment
+          p Click the comment box under a post to add a public reply. Keep it constructive—this can influence bystanders.
+
+      .column
+        h3 Direct message (DM)
+        img.ui.fluid.rounded.image(src='/public/message.png', alt='Profile popover with Message button')
+        img.ui.fluid.rounded.image(src='/public/chat.png', alt='Chat window for direct message', style='margin-top:0.5rem;')
+        .ui.small.basic.segment
+          p Click a name or avatar, then “Message” to open a private chat. DMs are great for checking motives and supporting victims.
+
+    // Start button
+    .ui.big.green.labeled.icon.button.start
+      i.play.icon
+      |  Start Game
+
+  // Script to handle start button click
+  script.
+    $('.ui.big.green.labeled.icon.button.start').on('click', function () {
+      $(this).addClass('loading disabled');
+      window.location.href = '/feed?level=1';
+    });

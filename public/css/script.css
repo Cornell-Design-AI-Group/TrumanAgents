@@ -1,0 +1,432 @@
+/* =====================================================
+   Feed + Posts + Comments — script.css
+   Matches script.pug structure and post.pug markup
+   ===================================================== */
+
+/* --------- Base / Utilities --------- */
+:root {
+  --bg-panel: rgba(255, 255, 255, 0.06);
+  --bg-panel-strong: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-soft: rgba(255, 255, 255, 0.1);
+  --shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  --text: #e9eef6;
+  --text-dim: #aeb6c2;
+  --accent: #8bd05a;
+  --danger: #ff3b30;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  color: var(--text);
+}
+
+/* --------- Layout: centered feed --------- */
+.feed-column {
+  max-width: 720px; /* keep feed readable */
+  width: 100%;
+}
+
+#feed-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* baseline spacing between posts */
+}
+
+/* Each loop wrapper from script.pug */
+.each-post {
+  width: 100%;
+}
+
+/* The card-like shell around each included post */
+.post-shell {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+  overflow: visible;
+}
+
+/* End-of-feed notice */
+.end-of-feed {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  padding: 20px 0 28px;
+}
+
+/* --------- Post content / big card adjustments --------- */
+.ui.fluid.card.large-post {
+  background: transparent !important; /* we use .post-shell as the outer card */
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--text);
+}
+
+/* Top meta row / containers */
+.ui.fluid.card.large-post .content,
+.ui.fluid.card.large-post .content.dimmable,
+.ui.fluid.card.large-post .extra.content {
+  padding: 12px 0 !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Post header aligned like comments */
+.ui.fluid.card.large-post > .content:nth-child(2) {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  grid-template-areas: "avatar name meta";
+  align-items: center;
+  gap: 12px;
+  padding: 0 !important;
+  min-height: 100px;
+  height: 100px;
+  padding-bottom: 0 !important;
+}
+.ui.fluid.card.large-post > .content:nth-child(2) a.ui.avatar.image {
+  grid-area: avatar;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100px !important;
+  min-width: 100px !important;
+  height: 100px !important;
+  min-height: 100px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+  line-height: 0 !important;
+}
+.ui.fluid.card.large-post > .content:nth-child(2) a.ui.avatar.image img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+.ui.fluid.card.large-post
+  > .content:nth-child(2)
+  a.ui.avatar.image
+  img.transition.visible {
+  width: 100px !important;
+  min-width: 100px !important;
+  height: 100px !important;
+  min-height: 100px !important;
+}
+.ui.fluid.card.large-post > .content:nth-child(2) a.username,
+.ui.fluid.card.large-post > .content:nth-child(2) span.username {
+  display: inline-block;
+  margin: 0;
+}
+.ui.fluid.card.large-post > .content:nth-child(2) > a:not(.ui.avatar.image) {
+  grid-area: name;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+}
+.ui.fluid.card.large-post > .content:nth-child(2) .right.floated.time.meta {
+  grid-area: meta;
+  float: none !important;
+  justify-self: end;
+  align-self: center;
+  margin: 0;
+  padding-right: 12px;
+}
+
+/* Remove gap between header bar and the post image/body */
+.ui.fluid.card.large-post .content.dimmable {
+  padding-top: 0 !important;
+}
+
+/* right floated time stamp */
+.right.floated.time.meta {
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+/* Avatar sizing */
+.ui.fluid.card.large-post .ui.avatar.image img {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+/* Poster name link (keeps default link styles minimal) */
+.ui.fluid.card.large-post a.username {
+  color: var(--text);
+  text-decoration: none;
+}
+.ui.fluid.card.large-post a.username:hover {
+  text-decoration: underline;
+}
+
+/* Post body image (responsive) */
+.resized-post-image,
+.ui.fluid.card.large-post .image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+/* Description/body text */
+.ui.fluid.card.large-post .description {
+  padding: 12px 16px;
+  line-height: 1.5;
+  color: #fff;
+  background: #e61b4b;
+}
+
+/* Action bar (Reply / Flag / Share / Like) */
+.four.ui.bottom.attached.icon.buttons {
+  border-top: 1px solid var(--border-soft);
+  background: var(--bg-panel-strong);
+}
+.four.ui.bottom.attached.icon.buttons .button {
+  background: transparent !important;
+  color: var(--text);
+}
+
+/* Like count label to keep consistent contrast */
+.ui.labeled.button .ui.basic.red.left.pointing.label.count {
+  border-color: var(--border);
+  color: var(--text);
+  background: transparent;
+}
+
+/* Dimmer for flagged posts/comments */
+.ui.dimmer.flag .ui.inverted.header,
+.ui.dimmer.flag .ui.inverted.icon.header {
+  color: #fff;
+}
+.ui.dimmer.flag i.red.flag.icon {
+  color: var(--danger) !important;
+}
+
+/* Hidden viewTimer (kept invisible) */
+.viewTimer.hidden {
+  display: none !important;
+}
+
+/* --------- Comments: shells + spacing (requested) --------- */
+
+/* Container */
+.ui.comments {
+  padding: 0 !important; /* flush with post edges */
+  width: 100% !important;
+  max-width: none !important;
+}
+.ui.fluid.card.large-post .content > .ui.comments {
+  margin: 0 !important; /* reclaim parent content padding */
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Each comment gets its own card/shell and space */
+.ui.comments .comment {
+  background: #ffffff;
+  color: #2f2f2f;
+  border-radius: 0;
+  padding: 0 !important; /* remove vertical padding */
+  margin: 0 0 12px 0; /* full-width to match post */
+  width: 100% !important;
+  box-sizing: border-box;
+  display: flex !important;
+  align-items: flex-start;
+  gap: 12px; /* breathing room between avatar and text */
+}
+
+/* Remove gap after last comment */
+.ui.comments .comment:last-child {
+  margin-bottom: 0;
+}
+
+/* Keep avatar and content aligned in a stacked flow */
+.ui.comments .comment > .content {
+  margin: 0 !important; /* override Semantic UI’s default indent */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 12px 0 16px !important; /* add breathing room without breaking columns */
+  flex: 1 1 auto;
+}
+.ui.comments .comment > .content > a {
+  padding-left: 4px; /* nudge name away from avatar */
+}
+
+/* Comment header (name + metadata) */
+.ui.comments .comment .metadata {
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+/* Square avatars for comments */
+.ui.comments .comment .ui.avatar.image {
+  width: 100px !important;
+  height: 100px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+}
+.ui.comments .comment .ui.avatar.image img {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 0;
+  object-fit: cover;
+  align-self: center;
+  display: block;
+}
+
+/* Comment text */
+
+.ui.comments .comment .text {
+  color: #2f2f2f;
+  line-height: 1.4;
+  margin-top: 2px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-left: 4px; /* align body copy with name/meta */
+  padding-right: 0;
+  width: 100%;
+}
+
+/* Comment composer (user input) */
+.ui.fluid.left.labeled.right.icon.input {
+  display: grid !important;
+  grid-template-columns: 100px 1fr 64px;
+  align-items: stretch;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.ui.fluid.left.labeled.right.icon.input > .ui.label {
+  padding: 0 !important;
+  width: 100px !important;
+  height: 100px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  line-height: 0 !important;
+}
+.ui.fluid.left.labeled.right.icon.input > .ui.label img {
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+.ui.fluid.left.labeled.right.icon.input .ui.form {
+  padding: 0 !important;
+}
+.ui.fluid.left.labeled.right.icon.input textarea.newcomment {
+  height: 100px !important;
+  min-height: 100px !important;
+  max-height: 100px !important;
+  resize: none;
+  padding: 12px 10px 0 12px !important; /* add top/left breathing room */
+  line-height: 1.4;
+  box-sizing: border-box;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  margin: 0 !important;
+}
+.ui.fluid.left.labeled.right.icon.input > i.icon {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 64px !important;
+  height: 100px !important;
+  padding: 0 !important;
+  border-left: 1px solid #d9d9d9;
+}
+
+/* Comment actions */
+.ui.comments .comment .actions a {
+  color: var(--text-dim);
+}
+.ui.comments .comment .actions a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* Likes chip in comments */
+.ui.comments .comment .rating .num {
+  margin-left: 4px;
+}
+
+/* Flagged notice inside comment keeps shell and spacing */
+.ui.comments .comment .content.transition.hidden {
+  display: none !important;
+}
+.ui.comments .comment .text.flagged-banner {
+  background: rgba(255, 0, 0, 0.15);
+  color: #fff;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+/* Ensure the special “You flagged this comment” bar stays readable */
+.ui.comments .comment .text[style*="background-color: black"] {
+  background: #000 !important;
+  color: #fff !important;
+  border-radius: 4px;
+  padding: 4px 6px !important;
+}
+
+/* --------- New Activity Banner --------- */
+#newActivityMessage .ui.fixed.bottom.sticky {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max(280px, 60vw);
+  z-index: 500;
+}
+
+#newActivityMessage .ui.icon.message.info {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+/* --------- Responsive --------- */
+@media (max-width: 992px) {
+  .feed-column {
+    max-width: 640px;
+  }
+}
+@media (max-width: 768px) {
+  .feed-column {
+    max-width: 100%;
+  }
+  .post-shell {
+    border-radius: 6px;
+  }
+  .ui.comments {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .ui.fluid.card.large-post .content {
+    padding: 12px;
+  }
+  .ui.fluid.card.large-post .description {
+    padding: 0 12px 10px;
+  }
+}

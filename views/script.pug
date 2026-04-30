@@ -1,0 +1,43 @@
+extends ui_layout
+
+block styles
+  link(type='text/css', rel='stylesheet', href='/public/css/script.css?v=4')
+  link(type='text/css', rel='stylesheet', href='/public/css/chat.css')
+  link(type='text/css', rel='stylesheet', href='/public/css/objectives.css')
+
+block content
+  // 🔥 Centered Feed
+  .ui.container
+    .ui.centered.grid
+      .column.feed-column
+        #feed-container
+          each val in script
+            .each-post
+              .post-shell
+                include partials/post
+
+        // End-of-feed notice
+        .end-of-feed
+          | End of Posts for the last 24 hours.
+
+  // New activity banner (kept outside the narrow column)
+  .ui.one.column.centered.grid#newActivityMessage
+    .ui.fixed.bottom.sticky.hidden
+      .ui.icon.message.info
+        i.close.icon
+        i.undo.icon.float
+        .content
+          .ui.header There is some new activity!
+          p Click to reload feed.
+
+block scripts
+  script(src='https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js')
+  script(src='https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js')
+  script(src='/public/js/postFunctionalities.js')
+  script(src='/public/js/script.js')
+  script(src='/public/js/chat.js')
+  script(src='/public/js/transitionModal.js')
+  script(src="/public/js/objectives.js")
+  script(src='/public/js/levelClient.js')
+  script(src='/public/js/score.js')
+  script(src='/public/js/timer.js')

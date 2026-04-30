@@ -1,0 +1,232 @@
+{
+  "variables": {},
+  "contents": {
+    "type": "Node",
+    "format": {
+      "type": "Anchored"
+    },
+    "data": {
+      "anchor": [0, 0],
+      "size": [725, 479],
+      "angle": 0,
+      "position": [417, 251],
+      "visible": true
+    },
+    "children": {
+      "Rectangle 1": {
+        "type": "Node",
+        "format": {
+          "type": "Anchored"
+        },
+        "data": {
+          "anchor": [0, 1],
+          "angle": 0,
+          "size": [541, 369],
+          "position": [95, 55],
+          "visible": true
+        },
+        "children": {
+          "fill": {
+            "type": "Solid",
+            "data": {
+              "polygon": [
+                541, 364, 539.54, 367.54, 536, 369, 5, 369, 1.46, 367.54, 0,
+                364, 0, 5, 1.46, 1.46, 5, 0, 536, 0, 539.54, 1.46, 541, 5
+              ],
+              "color": "#720000ff",
+              "anchor": [0.5, 0.5],
+              "position": [0, 0],
+              "visible": true
+            },
+            "layout": {
+              "x_anchor": "center",
+              "y_anchor": "middle"
+            }
+          },
+          "stroke": {
+            "type": "Path",
+            "data": {
+              "color": "#ab0909ff",
+              "path": {
+                "vertices": [
+                  541, 364, 539.54, 367.54, 536, 369, 5, 369, 1.46, 367.54, 0,
+                  364, 0, 5, 1.46, 1.46, 5, 0, 536, 0, 539.54, 1.46, 541, 5
+                ],
+                "closed": true
+              },
+              "stroke": 5,
+              "joint": "square",
+              "anchor": [0.5, 0.5],
+              "position": [0, 0],
+              "visible": true
+            },
+            "layout": {
+              "x_anchor": "center",
+              "y_anchor": "middle"
+            }
+          }
+        },
+        "layout": {
+          "x_anchor": "left",
+          "y_anchor": "top",
+          "absolute": false,
+          "x_offset": 0.13,
+          "y_offset": -0.11
+        }
+      },
+      "You Failed": {
+        "type": "Label",
+        "data": {
+          "anchor": [0, 1],
+          "size": [488, 116],
+          "position": [118.5, 247.64108276367188],
+          "angle": 0,
+          "visible": true,
+          "font": "courier newBold70",
+          "text": "You Failed",
+          "foreground": "#ffffffff",
+          "background": "#00000000",
+          "padding": [0, 0, 0, 0],
+          "valign": "middle",
+          "halign": "center"
+        },
+        "children": {},
+        "layout": {
+          "x_anchor": "left",
+          "y_anchor": "top",
+          "absolute": false,
+          "x_offset": 0.16,
+          "y_offset": -0.24
+        }
+      },
+      "retry": {
+        "type": "Button",
+        "format": {
+          "type": "Anchored"
+        },
+        "data": {
+          "anchor": [0, 1],
+          "size": [87.5, 87.5],
+          "angle": 0,
+          "position": [321, 136.5],
+          "visible": true,
+          "upnode": "Ellipse 2"
+        },
+        "children": {
+          "Ellipse 2": {
+            "type": "Node",
+            "format": {
+              "type": "Anchored"
+            },
+            "data": {
+              "anchor": [0, 1],
+              "angle": 0,
+              "size": [69.5, 69.5],
+              "position": [8, 10.55],
+              "visible": true
+            },
+            "children": {
+              "fill": {
+                "type": "Solid",
+                "data": {
+                  "polygon": [
+                    32.5, 0, 32.06, 5.35, 30.74, 10.55, 28.58, 15.47, 25.65,
+                    19.96, 22.01, 23.91, 17.78, 27.21, 13.06, 29.76, 7.98,
+                    31.51, 2.68, 32.39, -2.68, 32.39, -7.98, 31.51, -13.06,
+                    29.76, -17.78, 27.21, -22.01, 23.91, -25.65, 19.96, -28.58,
+                    15.47, -30.74, 10.55, -32.06, 5.35, -32.5, 0, -32.06, -5.35,
+                    -30.74, -10.55, -28.58, -15.47, -25.65, -19.96, -22.01,
+                    -23.91, -17.78, -27.21, -13.06, -29.76, -7.98, -31.51,
+                    -2.68, -32.39, 2.68, -32.39, 7.98, -31.51, 13.06, -29.76,
+                    17.78, -27.21, 22.01, -23.91, 25.65, -19.96, 28.58, -15.47,
+                    30.74, -10.55, 32.06, -5.35
+                  ],
+                  "color": "#ab0909ff",
+                  "anchor": [0.5, 0.5],
+                  "position": [0, 0],
+                  "visible": true
+                },
+                "layout": {
+                  "x_anchor": "center",
+                  "y_anchor": "middle"
+                }
+              },
+              "stroke": {
+                "type": "Path",
+                "data": {
+                  "color": "#ffffffff",
+                  "path": {
+                    "vertices": [
+                      34.75, 0, 34.63, 2.87, 34.28, 5.72, 33.69, 8.53, 32.87,
+                      11.28, 31.82, 13.96, 30.56, 16.54, 29.09, 19.01, 27.42,
+                      21.34, 25.57, 23.54, 23.54, 25.57, 21.34, 27.42, 19.01,
+                      29.09, 16.54, 30.56, 13.96, 31.82, 11.28, 32.87, 8.53,
+                      33.69, 5.72, 34.28, 2.87, 34.63, 0, 34.75, -2.87, 34.63,
+                      -5.72, 34.28, -8.53, 33.69, -11.28, 32.87, -13.96, 31.82,
+                      -16.54, 30.56, -19.01, 29.09, -21.34, 27.42, -23.54,
+                      25.57, -25.57, 23.54, -27.42, 21.34, -29.09, 19.01,
+                      -30.56, 16.54, -31.82, 13.96, -32.87, 11.28, -33.69, 8.53,
+                      -34.28, 5.72, -34.63, 2.87, -34.75, 0, -34.63, -2.87,
+                      -34.28, -5.72, -33.69, -8.53, -32.87, -11.28, -31.82,
+                      -13.96, -30.56, -16.54, -29.09, -19.01, -27.42, -21.34,
+                      -25.57, -23.54, -23.54, -25.57, -21.34, -27.42, -19.01,
+                      -29.09, -16.54, -30.56, -13.96, -31.82, -11.28, -32.87,
+                      -8.53, -33.69, -5.72, -34.28, -2.87, -34.63, 0, -34.75,
+                      2.87, -34.63, 5.72, -34.28, 8.53, -33.69, 11.28, -32.87,
+                      13.96, -31.82, 16.54, -30.56, 19.01, -29.09, 21.34,
+                      -27.42, 23.54, -25.57, 25.57, -23.54, 27.42, -21.34,
+                      29.09, -19.01, 30.56, -16.54, 31.82, -13.96, 32.87,
+                      -11.28, 33.69, -8.53, 34.28, -5.72, 34.63, -2.87
+                    ],
+                    "closed": true
+                  },
+                  "stroke": 5,
+                  "joint": "square",
+                  "anchor": [0.5, 0.5],
+                  "position": [0, 0],
+                  "visible": true
+                },
+                "layout": {
+                  "x_anchor": "center",
+                  "y_anchor": "middle"
+                }
+              }
+            },
+            "layout": {
+              "x_anchor": "left",
+              "y_anchor": "top",
+              "absolute": false,
+              "x_offset": 0.09,
+              "y_offset": -0.14
+            }
+          },
+          "Untitled_design__2_-removebg-preview 1": {
+            "type": "Image",
+            "data": {
+              "texture": "Untitled_design__2_-removebg-preview 1",
+              "anchor": [0, 1],
+              "size": [87.5, 87.5],
+              "angle": 0,
+              "position": [0, 0],
+              "visible": true
+            },
+            "layout": {
+              "x_anchor": "left",
+              "y_anchor": "top",
+              "absolute": false,
+              "x_offset": 0,
+              "y_offset": 0
+            }
+          }
+        },
+        "layout": {
+          "x_anchor": "left",
+          "y_anchor": "top",
+          "absolute": false,
+          "x_offset": 0.44,
+          "y_offset": -0.53
+        }
+      }
+    }
+  }
+}

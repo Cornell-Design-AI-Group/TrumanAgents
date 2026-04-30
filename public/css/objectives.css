@@ -1,0 +1,316 @@
+/* === Objectives panel (flat, no outer shell) === */
+.checklist-panel {
+  position: fixed;
+  left: 36px;
+  top: 80px;
+  width: 320px;
+  background: transparent;
+  color: #e4ebf2;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  z-index: 200;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.2px;
+}
+
+/* Header */
+.objectives-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 4px;
+}
+
+.objectives-header h4,
+.objectives-header h2 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  font-size: 1.08rem;
+  text-transform: uppercase;
+  color: #f2f5f7;
+  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+}
+
+.objectives-header .panel-arrow {
+  display: none;
+}
+
+/* Divider + list */
+ul.checklist {
+  list-style: none;
+  margin: 14px 0 0 0;
+  padding: 16px 0 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+ul.checklist li {
+  padding: 6px 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.1s ease;
+}
+
+ul.checklist li:hover {
+  transform: translateY(-1px);
+}
+
+ul.checklist li.completed {
+  background: transparent;
+}
+
+ul.checklist li + li {
+  margin-top: 0;
+}
+
+/* Checklist row */
+.objective-header {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.objective-label {
+  color: #e9edf3;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+}
+
+.objective-item.completed .objective-label {
+  color: #9ca3ab;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.objective-item.incomplete .objective-label {
+  color: #f2f7ff;
+}
+
+.objective-item.first-incomplete .objective-label {
+  color: #ff2f5c;
+  font-weight: 700;
+}
+
+/* Custom checkbox styling */
+.objective-header input[type="checkbox"] {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #cfd6de;
+  background: transparent;
+  border-radius: 6px;
+  position: relative;
+  margin: 0;
+  box-shadow: none;
+}
+
+.objective-header input[type="checkbox"]:checked {
+  background: #8f97a1;
+  border-color: #9ba2aa;
+}
+
+.objective-header input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 6px;
+  border-left: 3px solid #e8ecf0;
+  border-bottom: 3px solid #e8ecf0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%) rotate(-45deg);
+}
+
+.objective-item.incomplete .objective-header input[type="checkbox"] {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.objective-item.first-incomplete .objective-header input[type="checkbox"] {
+  border-color: #ff2f5c;
+  background: #ff2f5c;
+  position: relative;
+}
+
+.objective-item.incomplete .objective-header input[type="checkbox"]::after {
+  display: none;
+}
+
+.objective-item.first-incomplete
+  .objective-header
+  input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  display: block;
+  background:
+    linear-gradient(#1f1f1f, #1f1f1f) center top/2px 45% no-repeat,
+    linear-gradient(#1f1f1f, #1f1f1f) center bottom/2px 45% no-repeat,
+    linear-gradient(#1f1f1f, #1f1f1f) left center/45% 2px no-repeat,
+    linear-gradient(#1f1f1f, #1f1f1f) right center/45% 2px no-repeat;
+}
+
+.objective-item.first-incomplete
+  .objective-header
+  input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 2px solid #1f1f1f;
+  border-radius: 50%;
+}
+
+.dropdown-arrow {
+  display: none;
+}
+
+.objective-details {
+  display: none;
+  margin-top: 8px;
+  padding: 9px 10px 8px 32px;
+  background: rgba(21, 25, 29, 0.7);
+  border-left: 3px solid rgba(158, 184, 208, 0.6);
+  border-radius: 8px;
+  color: #cfd7e0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.hint-visible .objective-details {
+  display: block;
+}
+
+/* Preview layout container (used by objectives.pug) */
+.objectives-stage {
+  max-width: 1180px;
+  margin: 32px auto;
+  padding: 28px;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.05),
+      transparent 45%
+    ),
+    #2d3338;
+  border-radius: 18px;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45);
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+}
+
+.objectives-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.objectives-stage .objectives-column {
+  position: relative;
+  z-index: 1;
+}
+
+.objectives-stage .scene-column {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #22282d, #1a1f23);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.35);
+}
+
+.objectives-stage .scene-frame {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.objectives-stage .scene-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.objectives-stage .scene-caption {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #f7f9fb;
+  border-radius: 10px;
+  padding: 12px 14px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.scene-caption h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.scene-caption p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #e6ecf2;
+}
+
+/* Panel sits in flow when rendered inside the preview stage */
+.objectives-stage .checklist-panel {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin: 0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1100px) {
+  .checklist-panel {
+    position: static;
+    width: auto;
+    margin: 0 16px 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .objectives-stage {
+    grid-template-columns: 1fr;
+    padding: 22px;
+    margin: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .objectives-header h4 {
+    font-size: 1rem;
+  }
+
+  .objective-label {
+    font-size: 0.85rem;
+  }
+}

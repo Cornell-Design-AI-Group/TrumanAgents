@@ -1,0 +1,78 @@
+const passport = require("passport");
+const { Strategy: LocalStrategy } = require("passport-local");
+const { Strategy: BearerStrategy } = require("passport-http-bearer");
+
+const User = require("../models/User");
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async (id, done) => {
+  try {
+    return done(null, await User.findById(id));
+  } catch (error) {
+    return done(error);
+  }
+});
+
+/**
+ * Sign in using Email and Password.
+ */
+passport.use(
+  new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
+    User.findOne({ email: email.toLowerCase() })
+      .populate("session")
+      .then((user) => {
+        if (!user) {
+          return done(null, false, { msg: `Email ${email} not found.` });
+        }
+        user.comparePassword(password, (err, isMatch) => {
+          if (err) {
+            return done(err);
+          }
+          if (isMatch) {
+            return done(null, user);
+          }
+          return done(null, false, { msg: "Invalid email or password." });
+        });
+      })
+      .catch((err) => done(err));
+  }),
+);
+
+/**
+ * Sign in API key
+ */
+passport.use(
+  "bearer_token",
+  new BearerStrategy(function (token, done) {
+    User.findOne({ token: token }).then((user) => {
+      if (!user) {
+        return done(null, false, { msg: `Invalid API key.` });
+      }
+      return done(null, user, { scope: "all" });
+    });
+  }),
+);
+
+/**
+ * Middleware.
+ */
+const sessionAuthentication = passport.authenticate("session");
+const apiKeyAuthentication = passport.authenticate("bearer_token", {
+  session: false,
+});
+exports.authenticate = (req, res, next) => {
+  const authenticate = req.headers.authorization
+    ? apiKeyAuthentication
+    : sessionAuthentication;
+  authenticate(req, res, next);
+};
+
+exports.isAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/login" + (req.query.r_id ? `?r_id=${req.query.r_id}` : ""));
+};
