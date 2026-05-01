@@ -17,10 +17,7 @@ async function main() {
   }
 
   // Connect to MongoDB
-  await mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  await mongoose.connect(process.env.MONGODB_URI);
 
   // Fetch all scenario documents, sorted by their `level` field
   const scenarios = await Scenario.find({})

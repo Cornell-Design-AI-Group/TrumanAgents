@@ -22,7 +22,7 @@ dotenv.config({ path: ".env" });
  * Connect to MongoDB.
  */
 // establish initial Mongoose connection
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI);
 // listen for errors after establishing initial connection
 mongoose.connection.on("error", (err) => {
   console.error(err);

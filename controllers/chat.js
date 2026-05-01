@@ -6,7 +6,6 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const Session = require("../models/Session");
 const { getCurrentLevel } = require("../controllers/multi_user");
 
-
 /**
  * GET /chat
  * Returns the list of messages of chat with chat_id value and the receiver's attributes
@@ -80,7 +79,6 @@ exports.getChat = async (req, res, next) => {
 exports.postChatAction = async (req, res, next) => {
   try {
     const sender = await helpers.lookupActorByName(req.body.username);
-    
 
     //loads feed
     const sessionDoc = await Session.findById(sender.session).exec();
@@ -93,7 +91,11 @@ exports.postChatAction = async (req, res, next) => {
       const lvl = Number(await getCurrentLevel(sender)) || 1;
       let chat = await Chat.findOne({ chat_id: req.body.chatFullId }).exec();
       if (!chat)
-        chat = new Chat({ chat_id: req.body.chatFullId, level: lvl, messages: [] });
+        chat = new Chat({
+          chat_id: req.body.chatFullId,
+          level: lvl,
+          messages: [],
+        });
       //add this chat id to the sender's chatAction array
       sender.chatAction.push(chat.id);
       //add the message of this chat created with the specific chat_id
@@ -120,7 +122,7 @@ exports.postChatAction = async (req, res, next) => {
       ];
 
       const completion = await openai.chat.completions.create({
-        model: "gpt-4",
+        model: process.env.OPENAI_API_MODEL || "gpt-4o-mini",
         messages,
         max_tokens: 300,
         temperature: 0.7,
@@ -145,7 +147,11 @@ exports.postChatAction = async (req, res, next) => {
     const lvl = Number(await getCurrentLevel(sender)) || 1;
     let chat = await Chat.findOne({ chat_id: req.body.chatFullId }).exec();
     if (!chat)
-      chat = new Chat({ chat_id: req.body.chatFullId, level: lvl, messages: [] });
+      chat = new Chat({
+        chat_id: req.body.chatFullId,
+        level: lvl,
+        messages: [],
+      });
 
     // Push & save the USER message
     const senderAction = req.body.body;
@@ -174,7 +180,7 @@ exports.postChatAction = async (req, res, next) => {
       const systemPrompt = `You are now role-playing as ${otherUsername}:\n${behavior} in a social media simulation like Instagram. You should talk like the character, not like an AI. The conversations are generally short, reflecting that of a teenager in social media feed. \n\nHere is your activity history in the simulation so far:\n${actorContext}`;
 
       const completion = await openai.chat.completions.create({
-        model: "gpt-4",
+        model: process.env.OPENAI_API_MODEL || "gpt-4o-mini",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: req.body.body },

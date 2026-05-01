@@ -38,6 +38,3 @@ bower_components
 # OS metadata
 .DS_Store
 Thumbs.db
-
-# Dependency directory
-node_modules

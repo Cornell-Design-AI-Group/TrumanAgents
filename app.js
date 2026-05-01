@@ -66,7 +66,6 @@ const userController = require("./controllers/user");
 const chatController = require("./controllers/chat");
 const ScoreController = require("./controllers/ScoreController");
 const scoreController = new ScoreController();
-const feedbackService = require("./controllers/feedbackService");
 const {
   getUserLevel,
   resetLevelStartTime,
@@ -279,7 +278,6 @@ app.use(
       "/account/signup_info_post",
       "/signup",
       "/login",
-      "/api/feedback",
       "/score/reset",
     ],
   }),
@@ -516,13 +514,6 @@ app.post(
   actorsController.postNewActor,
 );
 
-app.get(
-  "/",
-  passportConfig.isAuthenticated,
-  loadUserSession,
-  scriptController.getScript,
-);
-
 app.post(
   "/action",
   passportConfig.isAuthenticated,
@@ -536,26 +527,6 @@ app.post(
 
 app.get("/test", passportConfig.isAuthenticated, (req, res) => {
   res.render("test", { title: "Test" });
-});
-
-app.post("/api/feedback", async (req, res) => {
-  try {
-    const user = req.user;
-    const actions = req.body.actions;
-    if (!Array.isArray(actions)) {
-      return res
-        .status(400)
-        .json({ error: "Missing or invalid actions array" });
-    }
-    const feedback = await feedbackService.analyzeFailedLevelActions(
-      actions,
-      user,
-    );
-    res.json({ feedback });
-  } catch (err) {
-    console.error("Feedback analysis error:", err);
-    res.status(500).json({ error: "Failed to analyze actions" });
-  }
 });
 
 app.get("/reset-level", async (req, res) => {
@@ -682,70 +653,6 @@ app.get("/api/objectives", passportConfig.isAuthenticated, async (req, res) => {
   }
 });
 
-/*app.get(
-  "/api/objectives",
-  passportConfig.isAuthenticated,
-  loadUserSession,
-  async (req, res) => {
-    try {
-      const q = Number(req.query.level);
-      const level = Number.isFinite(q) && q > 0 ? q : req.userSession.level;
-
-      const [objectives, userDoc] = await Promise.all([
-        Objective.find({ level }).lean(),
-        User.findById(req.user.id)
-          .select("objectiveProgress")
-          .lean(),
-      ]);
-
-      const progressByObjective = new Map();
-      if (userDoc?.objectiveProgress) {
-        for (const entry of userDoc.objectiveProgress) {
-          if (!entry?.objective) continue;
-          if (Number(entry.level) !== level) continue;
-          progressByObjective.set(String(entry.objective), entry);
-        }
-      }
-
-      const response = objectives.map((obj) => {
-        const prog = progressByObjective.get(String(obj._id));
-        return {
-          _id: obj._id,
-          label: obj.label,
-          description: obj.description,
-          completed: !!prog?.completed,
-          completedAt: prog?.completedAt || null,
-          hint: obj.hint || "",
-          order: obj.order ?? 0,
-        };
-      });
-      res.json(response);
-    } catch (err) {
-      console.error("❌ Error fetching objectives:", err);
-      res.status(500).json({ error: "Internal server error" });
-    }
-  },
-);*/
-
-/*app.get(
-  "/api/bullying-post",
-  passportConfig.isAuthenticated,
-  loadUserSession,
-  async (req, res) => {
-    try {
-      const q = Number(req.query.level);
-      const level = Number.isFinite(q) && q > 0 ? q : req.userSession.level;
-      const Script = require("./models/Script.js");
-      const post = await Script.findOne({ level, isRelevant: true }).lean();
-      if (!post) return res.status(204).send();
-      return res.json({ bullyingPostId: post._id.toString() });
-    } catch (err) {
-      console.error("❌ Error in /api/bullying-post:", err);
-      return res.status(500).json({ error: "Internal server error" });
-    }
-  },
-);*/
-
 /**
  * Errors
  */
@@ -823,7 +730,6 @@ io.on("connection", (socket) => {
       return;
     }
     scoreController.setUser(user);
-    await this.set(lv);
     await scoreController.resetScores(lv);
     await setCurrentLevel(lv, user);
     await resetLevelStartTime(user);

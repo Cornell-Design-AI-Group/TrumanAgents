@@ -20,9 +20,7 @@ console.log(color_start, "Started populate.js script...");
 
 dotenv.config({ path: ".env" });
 
-mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI, {
-  useNewUrlParser: true,
-});
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
 const db = mongoose.connection;
 mongoose.connection.on("error", (err) => {
   console.error(err);

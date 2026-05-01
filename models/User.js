@@ -185,21 +185,6 @@ userSchema.methods.logPostStats = function logPage() {
       const numNewComments = feedAction.comments.filter(
         (comment) => comment.new_comment,
       ).length;
-      this.feedAction.reduce(
-        function (newCount, feedAction) {
-          const numLikes = feedAction.comments.filter(
-            (comment) => comment.liked && !comment.new_comment,
-          ).length;
-          const numNewComments = feedAction.comments.filter(
-            (comment) => comment.new_comment,
-          ).length;
-
-          newCount[0] += numLikes;
-          newCount[1] += numNewComments;
-          return newCount;
-        },
-        [0, 0], //[actorCommentLikes, newComments]
-      );
       newCount[0] += numLikes;
       newCount[1] += numNewComments;
       return newCount;

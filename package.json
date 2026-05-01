@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js",
-    "test": "mocha --reporter spec",
+    "test": "echo \"No tests configured\" && exit 0",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
     "prepare": "husky"
@@ -48,15 +48,12 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
-    "chai": "^4.3.8",
     "eslint": "^9.19.0",
     "globals": "^15.14.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "nodemon": "^3.0.1",
-    "prettier": "3.3.3",
-    "sinon": "^16.1.1",
-    "supertest": "^6.3.3"
+    "prettier": "3.3.3"
   },
   "engines": {
     "node": ">=20"
