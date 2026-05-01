@@ -1,0 +1,20 @@
+[
+  {
+    "category": "Victim: Talk to victim",
+    "description": "Talk to Casey to understand her struggle and offer empathy.",
+    "deltas": [
+      { "field": "URA", "value": 1.0 },
+      { "field": "UAD", "value": 1.0 }
+    ],
+    "agents": ["caseymae_15"]
+  },
+  {
+    "category": "Public Upstanding: Challenge hazing norms",
+    "description": "Post a public comment that challenges the hazing norms and encourages Casey with situational context: Casey joined last month, was forced into extra push‑ups by seniors after practice, feels anxious and fears being labeled a snitch, and needs someone to make it clear that this isn’t okay.",
+    "deltas": [
+      { "field": "UES", "value": 1.0 },
+      { "field": "UPS", "value": 1.0 }
+    ],
+    "agents": ["caseymae_15"]
+  }
+]

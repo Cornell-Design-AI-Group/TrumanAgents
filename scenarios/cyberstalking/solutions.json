@@ -1,0 +1,92 @@
+[
+  {
+    "category": "ask victim feelings",
+    "description": "DM the victim to understand their feelings/needs. Help them recognize the behavior as cyberstalking and that hoping it stops on its own (wishful silence) can delay self-protective steps.",
+    "type": "dm",
+    "deltas": 17,
+    "next_steps": []
+  },
+  {
+    "category": "ask bully motive",
+    "description": "Publicly ask the bully why they posted to surface their initial motive (mimicking other bullies / excitement of social risk-taking, not intentional harm).",
+    "type": "comment",
+    "deltas": 17,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "xoxo_sarahhh",
+        "content": "It was just for the thrills—everyone does this. Didn’t think it was a big deal."
+      }
+    ]
+  },
+  {
+    "category": "support victim",
+    "description": "Post a public, supportive comment that educates the victim to recognize cyberstalking and to take self-protective measures (report/save evidence, tighten privacy, avoid negotiated contacts).",
+    "type": "comment",
+    "deltas": 17,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "joannn03",
+        "content": "Thank you for saying that publicly. I’ll start locking things down now."
+      },
+      {
+        "type": "comment",
+        "agent": "joannn03",
+        "content": "I agree—this has gone too far. Please stop posting about me."
+      }
+    ]
+  },
+  {
+    "category": "condemn bully: educate harm",
+    "description": "Publicly educate the bully that their actions cause harm and constitute cyberstalking.",
+    "type": "comment",
+    "deltas": 17,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "peer_jordan",
+        "content": "Agreed—this crosses the line. Let’s remove it."
+      }
+    ]
+  },
+  {
+    "category": "condemn bully: legal consequences",
+    "description": "State that the behavior can be a criminal offense; many U.S. states have laws targeting cyberstalking.",
+    "type": "comment",
+    "deltas": 17,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "xoxo_sarahhh",
+        "content": "I didn’t realize that. I’ll remove it."
+      }
+    ]
+  },
+  {
+    "category": "condemn bully: empathize shared experience",
+    "description": "Acknowledge and express sympathy that the bully may have been targeted by cyberstalking too, while still asking them to stop.",
+    "type": "comment",
+    "deltas": 17,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "xoxo_sarahhh",
+        "content": "Yeah… it happened to me once. I’ll take this down."
+      }
+    ]
+  },
+  {
+    "category": "misstep: accuse intentional bullying",
+    "description": "If the player accuses the bully of intentionally trying to harm the victim (without acknowledging lack of intent), the bully responds with anger and refuses to apologize.",
+    "type": "comment",
+    "deltas": -10,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "xoxo_sarahhh",
+        "content": "That’s not true. I’m not apologizing, and I’m not taking it down."
+      }
+    ]
+  }
+]

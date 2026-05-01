@@ -1,0 +1,51 @@
+[
+  {
+    "category": "talk to bully",
+    "description": "Talk to bully Blake and ask about his intentions. -the bully’s motive as malicious (e.g., seeking power, dominance, or attention), not as ignorance or tradition.",
+    "type": "dm",
+    "deltas": 25,
+    "next_steps": []
+  },
+  {
+    "category": "talk to victim",
+    "description": "Talk to victim Casey and dentify the victim’s motive as wanting to join the group despite harm (e.g., social belonging, lack of agency). Evidence includes explicitly stating they want acceptance or feel they have no choice.",
+    "type": "dm",
+    "deltas": 25,
+    "next_steps": []
+  },
+  {
+    "category": "rally bystander",
+    "description": "Publicly organize other bystanders before the hazing occurs to take collective action against it. Evidence includes tagging or addressing other bystanders and urging them to join in opposing the hazing.",
+    "type": "comment",
+    "deltas": 25,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "morgan_23",
+        "content": "This isn’t a rite of passage—it’s hazing. @alex_bball @ty_hoops17 can we agree as a team to shut this down and keep challenges respectful? No humiliating posts on this feed. #NoHazing #TeamRespect"
+      },
+      {
+        "type": "comment",
+        "agent": "alex_bball",
+        "content": "As co-captain, I’m not okay with this. We welcome rookies for their effort, not humiliation. @bl4ke.beast please delete this post and replace it with a positive intro challenge. @caseymae_15 you belong on this team."
+      },
+      {
+        "type": "comment",
+        "agent": "ty_hoops17",
+        "content": "I remember when this stuff happened to me—it didn’t build the team, it hurt it. @bl4ke.beast please delete this post. @caseymae_15 you don’t need to do stunts to prove anything. #WeGotYou"
+      },
+      {
+        "type": "modify post",
+        "agent": "",
+        "content": "I want to apologize for my earlier post — it crossed the line and wasn’t about building the team up. Hazing has no place here. Casey, and all our rookies, deserve respect and support from day one. The new challenge: post a video saying hi and sharing why you love basketball. Welcome to the team!"
+      }
+    ]
+  },
+  {
+    "category": "support victim",
+    "description": "Post a public comment under the hazing post to show the victim and other bystanders they are not alone. The comment should oppose the hazing, explicitly ask the bully to delete or change the post, and affirm the victim’s belonging.",
+    "type": "comment",
+    "deltas": 25,
+    "next_steps": []
+  }
+]

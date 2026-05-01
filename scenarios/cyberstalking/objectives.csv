@@ -1,0 +1,5 @@
+level,label,category,isRequired,order,isComposite,required,hint
+,Figure out the victim’s feelings and needs,ask victim feelings,false,1,false,,,
+,Figure out the bully’s motive,ask bully feelings,false,2,false,,,
+,Show the victim they are not alone,support victim,true,3,false,,,
+,Condemn the bully in a manner that is appropriate for the situation.,condemn bully,true,4,true,"condemn: educate_harm|condemn: legal_warning|condemn: empathy_shared_experience", "(a) Educate the bully that their actions cause harm and constitute cyberstalking, (b) it can be a criminal offense, as legislatures in nearly every US state have enacted laws targeting cyberstalking,(c) acknowledge and express sympathy that they were victims of cyberstalking too."

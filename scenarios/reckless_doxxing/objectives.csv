@@ -1,0 +1,4 @@
+level,label,category,isRequired,order,isComposite,required
+,Figure out the bully’s motive by asking them,talk to bully,false,1,false,
+,Disambiguate the situation by asking another bystander,ask informer to disambiguate,true,2,false,
+,Condemn the bully in a manner that is appropriate for the situation.,condemn bully,true,3,false,

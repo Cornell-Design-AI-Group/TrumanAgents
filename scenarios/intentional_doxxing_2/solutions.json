@@ -1,0 +1,53 @@
+[
+  {
+    "category": "talk to victim",
+    "description": "Talk to the victim Sophie to understand their emotional state and motive.",
+    "type": "dm",
+    "deltas": 20,
+    "next_steps": []
+  },
+  {
+    "category": "dispute justification",
+    "description": "Post a public comment that challenges the bully Liam’s framing of the doxxing. Refute claims that justify or minimize the harm.",
+    "type": "comment",
+    "deltas": 20,
+    "next_steps": []
+  },
+  {
+    "category": "call out doxxing",
+    "description": "Publicly point out that doxxing is a federal crime under the Interstate Doxxing Prevention Act. Challenge the bully Liam’s justification by referencing legal or ethical standards.",
+    "type": "comment",
+    "deltas": 20,
+    "next_steps": []
+  },
+  {
+    "category": "support victim",
+    "description": "Post a public comment showing the victim Sophie they are not alone. Affirm their belonging and express empathy to help restore their trust.",
+    "type": "comment",
+    "deltas": 20,
+    "next_steps": []
+  },
+  {
+    "category": "rally bystander",
+    "description": "Encourage others to take collective action. Ask bystanders to downvote, report the post, and avoid sharing or saving the harmful content.",
+    "type": "comment",
+    "deltas": 20,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "zoe_price",
+        "content": "Just reported it. This isn’t okay and definitely crosses a line. No one deserves to have their private stuff posted like that."
+      },
+      {
+        "type": "comment",
+        "agent": "connor_oconnor",
+        "content": "Yeah, I downvoted too. This isn’t drama—it’s dangerous. Let’s not make this worse by spreading it."
+      },
+      {
+        "type": "comment",
+        "agent": "mia_lin",
+        "content": "If you’ve saved or shared the post, delete it. Respect her privacy. We need to be better than this."
+      }
+    ]
+  }
+]

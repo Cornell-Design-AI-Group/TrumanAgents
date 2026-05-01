@@ -1,0 +1,59 @@
+[
+  {
+    "category": "talk to victim",
+    "description": "Talk to the victim to understand their emotional state and motive. Realize they are afraid of further escalation and considering withdrawing from the social circle.",
+    "type": "dm",
+    "deltas": 20,
+    "next_steps": []
+  },
+  {
+    "category": "dispute justification",
+    "description": "Post a public comment that challenges the bully’s framing of the doxxing. Refute claims that justify or minimize the harm (e.g., 'it was just a joke' or 'it’s public info anyway').",
+    "type": "comment",
+    "deltas": 20,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "player",
+        "content": "This isn’t just a prank—sharing someone’s private info without consent is doxxing, and it causes real harm. It’s not harmless or funny."
+      }
+    ]
+  },
+  {
+    "category": "call out doxxing",
+    "description": "Publicly point out that doxxing is a federal crime under the Interstate Doxxing Prevention Act. Challenge the bully’s justification by referencing legal or ethical standards.",
+    "type": "comment",
+    "deltas": 20,
+    "next_steps": []
+  },
+  {
+    "category": "support victim",
+    "description": "Post a public comment showing the victim they are not alone. Affirm their belonging and express empathy to help restore their trust.",
+    "type": "comment",
+    "deltas": 20,
+    "next_steps": []
+  },
+  {
+    "category": "rally bystander",
+    "description": "Encourage others to take collective action. Ask bystanders to downvote, report the post, and avoid sharing or saving the harmful content.",
+    "type": "comment",
+    "deltas": 20,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "omar007",
+        "content": "Just reported it. This isn’t okay and definitely crosses a line. No one deserves to have their private stuff posted like that."
+      },
+      {
+        "type": "comment",
+        "agent": "jamie4real",
+        "content": "Yeah, I downvoted too. This isn’t drama—it’s dangerous. Let’s not make this worse by spreading it."
+      },
+      {
+        "type": "comment",
+        "agent": "its.kat",
+        "content": "If you’ve saved or shared the post, delete it. Respect her privacy. We need to be better than this."
+      }
+    ]
+  }
+]

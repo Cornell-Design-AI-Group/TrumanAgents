@@ -1,0 +1,53 @@
+[
+  {
+    "category": "ask bully motive",
+    "description": "Publicly ask the bully why they posted the photo to surface their initial motive (entertainment, not intentional doxxing).",
+    "type": "dm",
+    "deltas": 30,
+    "next_steps": []
+  },
+  {
+    "category": "ask informer to disambiguate",
+    "description": "Ask the informer whether the bully’s post counts as doxxing/cyberbullying to disambiguate the situation.",
+    "type": "dm",
+    "deltas": 30,
+    "next_steps": []
+  },
+  {
+    "category": "condemn bully",
+    "description": "Condemn the bully in a manner that is appropriate for the situation. In this case, educate the bully how their actions cause harm and constitute cyberbullying, while acknowledging it is not their intention.",
+    "type": "comment",
+    "deltas": 30,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "jessm",
+        "content": "Posting someone’s private moments without consent can really hurt them and qualifies as cyberbullying. I know you probably didn’t mean to cause harm, but it’s still not okay—please take it down."
+      },
+      {
+        "type": "comment",
+        "agent": "amyoko_",
+        "content": "I didn’t realize it was that serious. I’m sorry—taking it down now."
+      },
+      {
+        "type": "dm",
+        "agent": "dlee89",
+        "content": "Thank you for speaking up under the post. It means a lot."
+      }
+    ]
+  },
+  {
+    "category": "rally informer to condemn",
+    "description": "Get the informer/bystander to join you in publicly condemning the bully’s behavior.",
+    "type": "comment",
+    "deltas": 10,
+    "next_steps": []
+  },
+  {
+    "category": "trigger new doxxing post",
+    "description": "Cause the bully to escalate by posting another doxxing post, increasing harm to the victim.",
+    "type": "comment",
+    "deltas": -50,
+    "next_steps": []
+  }
+]

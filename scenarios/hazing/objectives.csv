@@ -1,0 +1,5 @@
+level,label,category,isRequired, order,isComposite,required
+,Figure out the bully’s motive,talk to bully,false,1,false,
+,Figure out the victim’s motive,talk to victim,false,2,false,
+,Show the victim they are not alone,support victim,true,4,false,
+,Rally the bystanders to join your effort,rally bystander,true,3,false,

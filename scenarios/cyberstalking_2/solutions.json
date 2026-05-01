@@ -1,0 +1,92 @@
+[
+  {
+    "category": "ask victim feelings",
+    "description": "Talk to the victim Jolene to understand their feelings/needs. ",
+    "type": "dm",
+    "deltas": 17,
+    "next_steps": []
+  },
+  {
+    "category": "ask bully motive",
+    "description": "Post a comment asking the bully Jameson why they posted to surface their initial motive",
+    "type": "comment",
+    "deltas": 17,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "jim_thrives",
+        "content": "It was just for the thrills—everyone does this. Didn’t think it was a big deal."
+      }
+    ]
+  },
+  {
+    "category": "support victim",
+    "description": "Post a public, supportive comment that educates the victim Jolene to recognize cyberstalking and to take self-protective measures.",
+    "type": "comment",
+    "deltas": 17,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "jo_astro",
+        "content": "Thank you for saying that publicly. I’ll start locking things down now."
+      },
+      {
+        "type": "comment",
+        "agent": "jo_astro",
+        "content": "I agree—this has gone too far. Please stop posting about me."
+      }
+    ]
+  },
+  {
+    "category": "condemn bully: educate harm",
+    "description": "Publicly educate the bully Jameson that their actions cause harm and constitute cyberstalking.",
+    "type": "comment",
+    "deltas": 17,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "ash_volley",
+        "content": "Agreed—this crosses the line. Let’s remove it."
+      }
+    ]
+  },
+  {
+    "category": "condemn bully: legal consequences",
+    "description": "State that the behavior can be a criminal offense; many U.S. states have laws targeting cyberstalking.",
+    "type": "comment",
+    "deltas": 17,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "jim_thrives",
+        "content": "I didn’t realize that. I’ll remove it."
+      }
+    ]
+  },
+  {
+    "category": "condemn bully: empathize shared experience",
+    "description": "Acknowledge and express sympathy that the bully Jameson may have been targeted by cyberstalking too, while still asking them to stop.",
+    "type": "comment",
+    "deltas": 17,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "xoxo_sarahhh",
+        "content": "Yeah… it happened to me once. I’ll take this down."
+      }
+    ]
+  },
+  {
+    "category": "misstep: accuse intentional bullying",
+    "description": "If the player accuses the bully Jameson of intentionally trying to harm the victim (without acknowledging lack of intent), the bully responds with anger and refuses to apologize.",
+    "type": "comment",
+    "deltas": -10,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "xoxo_sarahhh",
+        "content": "That’s not true. I’m not apologizing, and I’m not taking it down."
+      }
+    ]
+  }
+]

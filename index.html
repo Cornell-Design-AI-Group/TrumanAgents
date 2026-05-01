@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Truman Agents</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --text: #1a1a1a;
+        --text-secondary: #666;
+        --bg: #fff;
+        --accent: #ef4035;
+        --max-width: 740px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Plus Jakarta Sans",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.75;
+        font-size: 16px;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      header {
+        padding: 80px 0 24px;
+        text-align: center;
+      }
+
+      h1 {
+        font-weight: 300;
+        font-size: 2.8em;
+        letter-spacing: -0.03em;
+        margin-bottom: 12px;
+      }
+
+      .subtitle {
+        font-size: 1em;
+        font-weight: 300;
+        color: var(--text-secondary);
+        margin: 0 auto 32px;
+      }
+
+      .links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .links a {
+        display: inline-block;
+        padding: 9px 22px;
+        border: 1.5px solid var(--text);
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.85em;
+        font-weight: 600;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+
+      .links a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      a {
+        color: var(--text);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      a:hover {
+        color: var(--accent);
+      }
+
+      .hero {
+        margin: 48px 0;
+        text-align: center;
+      }
+
+      .hero img {
+        max-width: 100%;
+      }
+
+      .hero figcaption {
+        margin-top: 10px;
+        font-size: 0.85em;
+        color: var(--text-secondary);
+      }
+
+      section {
+        margin: 56px 0;
+      }
+
+      section h2 {
+        font-weight: 600;
+        font-size: 1.2em;
+        margin-bottom: 12px;
+      }
+
+      p {
+        margin-bottom: 14px;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      .citation {
+        background: #f7f7f7;
+        padding: 18px 22px;
+        font-family: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+        font-size: 0.85em;
+        line-height: 1.6;
+        overflow-x: auto;
+        margin-top: 16px;
+      }
+
+      footer {
+        margin: 72px 0 48px;
+        text-align: center;
+        font-size: 0.85em;
+        color: var(--text-secondary);
+      }
+
+      footer a {
+        color: var(--text-secondary);
+      }
+
+      footer a:hover {
+        color: var(--accent);
+      }
+
+      @media (max-width: 600px) {
+        header {
+          padding: 48px 0 20px;
+        }
+        h1 {
+          font-size: 2.1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    Truman Agents = the open-source simulation platform (the reusable tool any researcher can use)
+    Upstanders' Practicum = a specific application built on Truman Agents, consisting of the
+    cyberbullying scenarios, agent role designs, and instructional scaffolding described in the paper.
+    The analogy: Truman Agents is to Upstanders' Practicum as Unity is to a specific game.
+    The platform is general-purpose; the application is a particular research configuration of it.
+  -->
+    <div class="container">
+      <header>
+        <h1>Truman Agents</h1>
+        <p class="subtitle">
+          An open-source, multi-LLM-agent social media simulation platform
+        </p>
+        <div class="links">
+          <a href="https://github.com/Cornell-Design-AI-Group/TrumanAgents"
+            >Code</a
+          >
+          <a
+            href="https://github.com/Cornell-Design-AI-Group/TrumanAgents/tree/main/docs"
+            >Docs</a
+          >
+          <a href="#">Paper (coming soon)</a>
+        </div>
+      </header>
+
+      <figure class="hero">
+        <img src="./static/hero.png" alt="Truman Agents system overview" />
+        <figcaption>
+          Overview of the Truman Agents simulation platform.
+        </figcaption>
+      </figure>
+
+      <section>
+        <p>
+          Truman Agents is an open-source platform for creating realistic social
+          media simulations populated by AI characters. Researchers design
+          social situations, define how characters behave, and observe how
+          multiple human participants respond, all without programming.
+          Developed by the
+          <a href="https://designai.cis.cornell.edu/"
+            >DesignAI Group at Cornell</a
+          >.
+        </p>
+      </section>
+
+      <section>
+        <h2>How researchers use it</h2>
+        <p>
+          You design a social situation by creating its cast of characters. Each
+          character has a role (such as bully, victim, or bystander), a
+          backstory, personality traits, and behavioral tendencies that
+          determine how they respond to social dynamics. Some characters can be
+          fully scripted for experimental control, while others are driven by
+          large language models and respond dynamically to what participants do.
+          Everything is configured through CSV and JSON files, and you can
+          customize the platform's appearance to support your study's cover
+          story.
+        </p>
+        <p>
+          When a participant enters, they see a social media feed where your
+          characters are already active, posting, commenting, liking, and
+          reacting to each other (powered by a companion service called
+          <a href="https://github.com/Cornell-Design-AI-Group/TrumanWorld"
+            >TrumanWorld</a
+          >). Participants can also message characters directly and receive
+          in-character responses. You can structure the simulation into stages,
+          each with defined objectives that a built-in grader scores
+          automatically.
+        </p>
+        <p>
+          Multiple participants can log onto the same social media feed,
+          interacting with each other in addition to the AI characters. The
+          platform records every participant interaction, including time on
+          site, feed actions, and chat messages, exportable for analysis.
+        </p>
+      </section>
+
+      <section>
+        <h2>Example application: Upstanders' Practicum</h2>
+        <p>
+          The codebase includes a complete set of cyberbullying scenarios and
+          agent configurations from <em>Upstanders' Practicum</em>, a
+          multi-agent simulation designed to help young adults practice public
+          bystander intervention. It covers eight scenarios including hazing,
+          cyberstalking, and doxxing. These serve as working examples that you
+          can run, modify, or use as templates for your own research.
+        </p>
+      </section>
+
+      <section>
+        <h2>Citation</h2>
+        <p>If you use Truman Agents in your research, please cite:</p>
+        <div class="citation">
+          @article{yang2026notskills,<br />
+          &nbsp;&nbsp;title={Not Skills, But Attention: What Prevents Young
+          Adults<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from Speaking Up
+          Against Cyberbullying in an<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LLM-Powered
+          Social Media Simulation},<br />
+          &nbsp;&nbsp;author={Yang, Qian and Jia, Jessie and Tsai, Elaine<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and Li,
+          Amy and Akoury, Nader and Bazarova, Natalie N.},<br />
+          &nbsp;&nbsp;year={2026},<br />
+          &nbsp;&nbsp;note={Preprint available soon}<br />
+          }
+        </div>
+      </section>
+
+      <footer>
+        <a href="https://designai.cis.cornell.edu/"
+          >DesignAI Group at Cornell</a
+        >
+      </footer>
+    </div>
+  </body>
+</html>

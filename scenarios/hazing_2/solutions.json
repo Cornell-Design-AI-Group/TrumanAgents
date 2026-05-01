@@ -1,0 +1,51 @@
+[
+  {
+    "category": "talk to bully",
+    "description": "Talk to bully Blake and ask about his intentions",
+    "type": "dm",
+    "deltas": 25,
+    "next_steps": []
+  },
+  {
+    "category": "talk to victim",
+    "description": "Talk to victim Casey and and identify the victim’s motive as wanting to be accepted into the group despite harm",
+    "type": "dm",
+    "deltas": 25,
+    "next_steps": []
+  },
+  {
+    "category": "rally bystander",
+    "description": "Publicly organize other bystanders before the hazing-style challenge occurs to take collective action against it. Evidence includes tagging or addressing other bystanders and urging them to join in opposing the humiliation.",
+    "type": "comment",
+    "deltas": 25,
+    "next_steps": [
+      {
+        "type": "comment",
+        "agent": "morgan_snap",
+        "content": "This isn’t a bonding tradition—it’s vocal hazing. @alex_verse @ty_vocals can we agree as a group to keep challenges respectful? Let’s stick to fun, supportive activities and skip anything meant to embarrass. #NoHazing #SingTogether"
+      },
+      {
+        "type": "comment",
+        "agent": "alex_verse",
+        "content": "As section leader, I’m not okay with this. We welcome new members for their talent and passion, not public embarrassment. @blake_tempo please take this post down and replace it with something encouraging. @casey_chords you’re part of this group already."
+      },
+      {
+        "type": "comment",
+        "agent": "ty_vocals",
+        "content": "I went through something similar my first year—it didn’t make me feel part of the group, it made me feel small. @blake_tempo please remove this. @casey_chords you don’t need to prove yourself through this. #WeGotYou"
+      },
+      {
+        "type": "modify post",
+        "agent": "",
+        "content": "I want to apologize for my earlier post — it crossed the line and wasn’t about building harmony. Hazing has no place here. Casey, and all our new members, deserve respect and support from the start. The new challenge: post a short clip sharing your favorite song to sing. Welcome to the group!"
+      }
+    ]
+  },
+  {
+    "category": "support victim",
+    "description": "Post a public comment under the hazing-style post to show the victim and other bystanders they are not alone. The comment should oppose the challenge, explicitly ask the bully to delete or change the post, and affirm the victim’s belonging in the group.",
+    "type": "comment",
+    "deltas": 25,
+    "next_steps": []
+  }
+]

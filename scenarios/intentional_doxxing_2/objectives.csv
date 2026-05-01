@@ -1,0 +1,5 @@
+level,label,category,isRequired,order,isComposite,required
+,Figure out the victim’s feelings and needs,talk to victim,false,1,false,
+,Show the victim they are not alone,support victim,true,2,false,
+,Condemn the bully in a manner that is appropriate for the situation.,dispute justification,true,3,false,
+,Resolve the situation without escalating it,rally bystander,true,4,false,
