@@ -5,7 +5,7 @@
 
 That repository has a lot of helpful and relevant information on the libraries, organization, setup, and FAQs on web development. Feel free to read through their README.md as well for a more expansive understanding of the project structure.
 
-The Truman Platform (Truman) is a web application that uses a Node.js, MongoDB, Express.js and Pug templating engine webstack.
+Truman Agents is a web application that uses a Node.js, MongoDB, Express.js and Pug templating engine webstack.
 
 ## The Model View Controller (MVC) framework
 

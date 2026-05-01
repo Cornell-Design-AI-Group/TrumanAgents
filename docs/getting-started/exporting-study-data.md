@@ -7,7 +7,7 @@
 
 During the study, participants' behavioral data on the website is recorded in the MongoDB database that you have set up. MongoDB is a NoSQL Server in which data is stored in BSON (Binary JSON) documents and each document is built on a key-value pair structure. The details of this are not too important if you are not familiar with MongoDB.
 
-Instead, a script (`data-export.js`) is provided in The Truman Platform project folder that when run, exports basic variables and information about the participants' behavioral metrics on Truman into a readable csv file. This eliminates the need for you to go into the database (which can be overwhelming) and allow you to easily analyze participants' behavioral data at the end of your study.
+Instead, a script (`data-export.js`) is provided in the Truman Agents project folder that when run, exports basic variables and information about the participants' behavioral metrics on Truman into a readable csv file. This eliminates the need for you to go into the database (which can be overwhelming) and allow you to easily analyze participants' behavioral data at the end of your study.
 
 ### How to export data into readable csv file
 

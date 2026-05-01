@@ -1,13 +1,12 @@
-FROM node:6.6.0
+FROM node:20-alpine
 
-COPY . /starter
-COPY package.json /starter/package.json
-COPY .env.example /starter/.env.example
+WORKDIR /app
 
-WORKDIR /starter
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev --ignore-scripts
 
-RUN npm install 
+COPY . .
 
-CMD ["npm","start"]
+EXPOSE 3000
 
-EXPOSE 8888
+CMD ["npm", "start"]

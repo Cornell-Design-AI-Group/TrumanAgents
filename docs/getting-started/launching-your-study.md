@@ -66,15 +66,15 @@ Note: Participants will never interact with other participants, so their persona
 
 It is common for researchers to launch a Truman simulation alongside a pre-study survey and a post-study survey for their study.
 
-The pre-study survey is typically given to the research participant prior to their access of Truman and is used to gather information about the participant before they begin the study. At the end of the pre-survey, the participant is usually then directed to The Truman Platform via a provided link (your Truman application's website URL).
+The pre-study survey is typically given to the research participant prior to their access of Truman and is used to gather information about the participant before they begin the study. At the end of the pre-survey, the participant is usually then directed to Truman Agents via a provided link (your Truman application's website URL).
 
 The post-study survey is typically given to the research participant after they have completed their study time on Truman. The post-survey is used to gather further data for the study.
 
-When pre-study surveys and post-study surveys are used, it is essential to be able to match participant survey responses with their behavior on The Truman Platform. The Truman Platform currently has infrastructure to do this with Qualtrics.
+When pre-study surveys and post-study surveys are used, it is essential to be able to match participant survey responses with their behavior on Truman Agents. Truman Agents currently has infrastructure to do this with Qualtrics.
 
 The _ResponseID_ is an ID Qualtrics uses to identify each survey response in the database. This value is unique and automatically exported in Qualtrics datasets. This value can be passed to Truman and attached to a participant's account at initial account signup via passing the value in as a URL query parameter `r_id`(see [Passing information from a Qualtrics Survey](https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/standard-elements/passing-information-through-query-strings/#PassingInformationFromASurvey) for more information). This same value can then be passed to a post-study survey and recorded as an embedded data variable in Qualtrics as well (see [Passing information to a Qualtrics Survey](https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/standard-elements/passing-information-through-query-strings/#PassingInformationIntoASurvey) for more information).
 
-As a result, you can then match a participant's pre-study survey response (with`ResponseID`), behavioral data on Truman (with `ResponseID`), and post-study survey response (with the variable of your embedded data) together. Below is a diagram that describes how to integrate Qualtrics with The Truman Platform and outlines this mechanism more in detail:
+As a result, you can then match a participant's pre-study survey response (with`ResponseID`), behavioral data on Truman (with `ResponseID`), and post-study survey response (with the variable of your embedded data) together. Below is a diagram that describes how to integrate Qualtrics with Truman Agents and outlines this mechanism more in detail:
 
 ![](qualtrics-workflow.png)
 

@@ -54,10 +54,10 @@ To define an actor, go to the `actors.csv` file. For each actor, add a new row, 
 - **bio** is the actor's bio. (optional)
 - **picture** is the file path/ file name of the actor's profile photo, relative to the folder `/profile_pictures`. See below for more information:
   - Place all actor profile photos into the `/profile_pictures` folder. When filling out the `actors.csv` file, the value that is inputted into the 'picture' column for an actor should **exactly match** the file path and file name of the same actor's profile photo, relative to the folder `/profile_pictures`. See the current csv file for examples.
-  - The Truman template currently has 76 profile photos in the `/profile_pictures` folder and more to choose from in the subfolder `/profile_pictures/unused`.
+  - The Truman Agents template currently has 76 profile photos in the `/profile_pictures` folder and more to choose from in the subfolder `/profile_pictures/unused`.
 - **class** can be used as a label for experimental purposes. For example, you can label certain actors as "bully" or "victim". (optional)
 
-The Truman project food scenario currently defines 76 actors.
+The Truman Agents food scenario currently defines 76 actors.
 
 </details>
 
@@ -79,10 +79,10 @@ To define an agent, go to the `agents.csv` file. For each agent, add a new row, 
 - **behavior** are instructions for how the agent should behave. (optional)
 - **picture** is the file path/ file name of the agent's profile photo, relative to the folder `/profile_pictures`. See below for more information:
   - Place all agent profile photos into the `/profile_pictures` folder. When filling out the `agents.csv` file, the value that is inputted into the 'picture' column for an agent should **exactly match** the file path and file name of the same agent's profile photo, relative to the folder `/profile_pictures`. See the current csv file for examples.
-  - The Truman template currently has 76 profile photos in the `/profile_pictures` folder and more to choose from in the subfolder `/profile_pictures/unused`.
+  - The Truman Agents template currently has 76 profile photos in the `/profile_pictures` folder and more to choose from in the subfolder `/profile_pictures/unused`.
 - **class** can be used as a label for experimental purposes. For example, you can label certain agents as "bully" or "victim". (optional)
 
-The Truman project cyberbullying scenario currently defines 11 agents.
+The Truman Agents cyberbullying scenario currently defines 11 agents.
 
 </details>
 
@@ -94,10 +94,10 @@ The **`posts.csv`** file defines the basic content of the **simulation posts** (
 
 To define a post, go to the `posts.csv` file. For each post, add a new row, and define the following fields under their respective columns:
 
-- **body** is the caption text of the post. It is displayed under the post's photo on the Truman Platform, similar to Instagram. (required field)
+- **body** is the caption text of the post. It is displayed under the post's photo on Truman Agents, similar to Instagram. (required field)
 - **picture** is the file path/ file name of the post's photo, relative to the folder `/post_pictures`. (required field) See below for more information:
   - Place all post photos into the `/post_pictures` folder. When filling out the `posts.csv` file, the value that is inputted into the 'picture' column for a post should **exactly match** the file path and the file name of the same post's photo, relative to the folder `/post_pictures`. See the current csv file for examples.
-  - The Truman template currently has about 280 photos in this folder and more to choose from in the subfolder `/post_pictures/unused`.
+  - The Truman Agents template currently has about 280 photos in this folder and more to choose from in the subfolder `/post_pictures/unused`.
 - **actor** is the username of the actor who "posts" this post. This value must exactly match a username value in `/scenarios/<scenario name>/actors.csv`. (required field)
 - **likes** is the # of likes this post is simulated to have. If a value is not given, then a random value will be generated for the post. (optional)
 - **time** is the timestamp the post should be simulated to have been posted. This timestamp is defined in reference to the moment the participant joined the website. It can be defined as before or after the participant joined using the format (+/-)HH:MM. (required field)

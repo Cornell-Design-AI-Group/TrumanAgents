@@ -1,6 +1,6 @@
 # Setting up Truman locally
 
-The following steps will guide you through how to set up your own version of The Truman Platform. At the end, you should have a running version of the project on your local computer.
+The following steps will guide you through how to set up your own version of Truman Agents. At the end, you should have a running version of the project on your local computer.
 
 Below is a brief overview of the steps you will take to set up Truman locally:
 
@@ -12,7 +12,7 @@ The instructions for each step are outlined below.
 
 ## Creating a MongoDB database instance
 
-The Truman Platform uses MongoDB as its database system. It is where participant data, simulation data, and more is stored.
+Truman Agents uses MongoDB as its database system. It is where participant data, simulation data, and more is stored.
 
 MongoDB Atlas is a managed cloud database service that hosts MongoDB databases. We will be using MongoDB Atlas to easily set up a free MongoDB database.
 
@@ -65,7 +65,7 @@ MongoDB Atlas is a managed cloud database service that hosts MongoDB databases. 
 
 ## Downloading the code from GitHub
 
-The most recent codebase for The Truman Platform can be found here: [https://github.com/Cornell-Design-AI-Group/TrumanAgents](https://github.com/Cornell-Design-AI-Group/TrumanAgents).
+The most recent codebase for Truman Agents can be found here: [https://github.com/Cornell-Design-AI-Group/TrumanAgents](https://github.com/Cornell-Design-AI-Group/TrumanAgents).
 
 This repository contains the most recent code (last updated in March 2025), which includes a variety of updates since the original project (which was created in 2019). We recommend using this repository.
 

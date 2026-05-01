@@ -1,17 +1,34 @@
-# Contributing
+# Contributing to Truman Agents
 
-When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change.
+Thank you for your interest in contributing to Truman Agents! This project is maintained by the [DesignAI Group at Cornell](https://designai.cis.cornell.edu/) and we welcome contributions from the research community.
 
-Please note we have a code of conduct, please follow it in all your interactions with the project.
+## How to contribute
 
-## Pull Request Process
+**Before making changes**, please open an issue on GitHub describing what you'd like to do. This helps us coordinate and avoid duplicate work.
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a
-   build.
-2. Update the README.md with details of changes to the interface, this includes new environment
-   variables, exposed ports, useful file locations and container parameters.
-3. Increase the version numbers in any examples files and the README.md to the new version that this
-   Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you
-   do not have permission to do that, you may request the second reviewer to merge it for you.
+We especially welcome:
+
+- Bug reports (with steps to reproduce)
+- Documentation improvements
+- New scenario templates
+- Compatibility fixes (e.g., updated dependencies, new LLM providers)
+
+## Submitting changes
+
+1. Fork the repository and create a branch for your changes
+2. Make your changes, keeping commits focused and descriptive
+3. Test that the app still runs (`npm install`, `npm run dev`)
+4. Open a Pull Request with a clear description of what you changed and why
+
+## Reporting bugs
+
+Open an issue with:
+
+- What you expected to happen
+- What actually happened
+- Steps to reproduce
+- Your environment (Node.js version, OS, MongoDB version)
+
+## Questions?
+
+Open an issue or contact the maintainer: Qian Yang (qianyang at cornell dot edu).

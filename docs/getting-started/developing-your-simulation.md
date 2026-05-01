@@ -8,7 +8,7 @@ Begin by [installing Truman](/docs/setting-up-truman/installing-truman/index.md)
 
 ## Understanding the timeline
 
-The Truman Platform looks and feels like a real social networking site, because it is a social networking site. Researchers can curate, create, and control every actor, post, like, comment, notification, and interaction on the social networking site.
+Truman Agents looks and feels like a real social networking site, because it is a social networking site. Researchers can curate, create, and control every actor, post, like, comment, notification, and interaction on the social networking site.
 
 Every one of these interactions and behaviors is defined around _the moment the participant joins the site_, so each participant has their own individual timeline within the study.
 
@@ -30,7 +30,7 @@ Here is what you need to build your own simulation:
 
 ### Displaying different simulation content for different experimental conditions
 
-Researchers can readily display different simulation _content_ (specifically, different actors, posts, comments, notifications) for different experimental conditions by labeling them in the Truman Platform infrastructure.
+Researchers can readily display different simulation _content_ (specifically, different actors, posts, comments, notifications) for different experimental conditions by labeling them in Truman Agents.
 
 See [Defining your Simulation](/docs/setting-up-truman/defining-your-simulation/index.md) for more details on how to display different simulations for different experimental conditions.
 

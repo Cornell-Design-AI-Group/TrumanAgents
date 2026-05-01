@@ -1,6 +1,6 @@
 # Installing Truman
 
-The Truman Platform (Truman) is a web application that uses the Node.js framework.
+Truman Agents is a web application that uses the Node.js framework.
 
 The following pages will help walk you through:
 

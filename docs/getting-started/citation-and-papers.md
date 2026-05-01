@@ -30,7 +30,13 @@ DiFranzo, D., Taylor, S. H., Kazerooni, F., Wherry, O. D., & Bazarova, N. N. (20
 
 DiFranzo, D. & Bazarova, N. N. (2018). [The Truman Platform: Social media simulation for experimental research](https://socialmedialab.cornell.edu/files/2020/10/Truman_ICWSM_workshop.pdf). Workshop paper presented at The 12th International Conference on Web and Social Media (ICWSM ’18), Stanford, CA.
 
-## Citing The Truman Platform in your research paper
+## Citing Truman Agents in your research paper
+
+If you use Truman Agents in your research, please cite:
+
+Yang, Q., Jia, J., Tsai, E., Li, A., Akoury, N., & Bazarova, N. N. (2026). Not Skills, But Attention: What Prevents Young Adults from Speaking Up Against Cyberbullying in an LLM-Powered Social Media Simulation. Preprint available soon.
+
+## Citing the original Truman Platform
 
 You may use the following citation when citing The Truman Platform in your research paper:
 
@@ -38,7 +44,7 @@ DiFranzo, D. & Bazarova, N. N. (2018). [The Truman Platform: Social media simula
 
 ## Sharing your findings with us through email
 
-We would love to hear about your study findings and contribution to the research community. Please email us a study report after you have completed your study to [cornellsocialmedia@gmail.com](mailto:cornellsocialmedia@gmail.com).
+We would love to hear about your study findings and contribution to the research community. Please email us a study report after you have completed your study to [qianyang@cornell.edu](mailto:qianyang@cornell.edu).
 
 | [Previous<br>Exporting Study Data](/docs/getting-started/exporting-study-data.md) | [Next<br>Installing Truman](/docs/setting-up-truman/installing-truman/index.md) |
 | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |

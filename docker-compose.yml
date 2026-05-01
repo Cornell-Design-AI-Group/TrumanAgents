@@ -1,21 +1,31 @@
-version: "2"
+# Before running: copy .env.example to .env and configure it.
+#   cp .env.example .env
+#
+# Start:  docker compose up
+# Stop:   docker compose down
+
 services:
   mongo:
-    image: mongo:3.4
-  node_modules:
-    build:
-      context: .
-      dockerfile: Dockerfile_nodemodules
+    image: mongo:7
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
   web:
     build: .
     ports:
       - "3000:3000"
     environment:
-      - MONGODB_URI=mongodb://mongo:27017/test
-    links:
-      - mongo
+      # Override the .env MONGODB_URI to point to the Docker mongo service
+      - MONGODB_URI=mongodb://mongo:27017/truman
+    env_file:
+      - .env
     depends_on:
       - mongo
     volumes:
-      - .:/starter
-      - /starter/node_modules
+      - .:/app
+      - /app/node_modules
+
+volumes:
+  mongo-data:
